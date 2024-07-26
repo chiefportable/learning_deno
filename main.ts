@@ -1,12 +1,30 @@
-import { resolve } from "@std/path";
-export function add(a: number, b: number): number {
-    return a + b;
-}
+// deno serve
+Deno.serve((req: Request) => {
+    const { url, method } = req;
+    const new_url = new URL(url);
 
-// Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-    console.log("Add 2 + 3 =", add(2, 3));
-}
+    if (new_url.pathname === "/" && method === "GET") {
+        return new Response("<h1>Welcome to the home page</h1>", {
+            status: 200,
+            headers: {
+                "content-type": "text/html",
+            },
+        });
+    }
 
-console.log(typeof resolve);
-console.log(resolve("view"));
+    if (new_url.pathname === "/contact" && method === "GET") {
+        return new Response("<h1>Welcome to the contact page<h1>", {
+            status: 200,
+            headers: {
+                "content-type": "text/html",
+            },
+        });
+    }
+
+    return new Response("page not found", {
+        status: 200,
+        headers: {
+            "content-type": "text/html",
+        },
+    });
+});

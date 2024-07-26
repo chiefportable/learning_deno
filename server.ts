@@ -1,19 +1,3 @@
-// interface Person {
-//     firstname: string;
-//     lastname: string;
-// }
-
-// function someone(p: Person): string {
-//     return `${p.firstname} ${p.lastname}`;
-// }
-
-// const ray: Person = {
-//     firstname: "Raymond Ato",
-//     lastname: "Ghanney",
-// };
-
-// console.log(someone(ray));
-
 export const url = fetch("https://jsonplaceholder.typicode.com/users");
 
 const fetch_method = url
@@ -34,3 +18,19 @@ const fetch_method = url
 console.log(await fetch_method);
 
 console.log("some data working");
+
+interface Person {
+    firstname: string;
+    lastname: string;
+}
+
+function someone(p: Person): string {
+    return `${p.firstname} ${p.lastname}`;
+}
+
+const ray: Person = {
+    firstname: "Raymond Ato",
+    lastname: "Ghanney",
+};
+
+console.log(someone(ray));
