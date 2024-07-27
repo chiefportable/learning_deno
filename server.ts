@@ -22,15 +22,9 @@ console.log("some data working");
 interface Person {
     firstname: string;
     lastname: string;
+    age?: number;
 }
 
 function someone(p: Person): string {
     return `${p.firstname} ${p.lastname}`;
 }
-
-const ray: Person = {
-    firstname: "Raymond Ato",
-    lastname: "Ghanney",
-};
-
-console.log(someone(ray));
